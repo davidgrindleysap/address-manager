@@ -1,0 +1,12 @@
+---
+applications:
+- name: approuter
+  routes:
+    - route: approuter-i056678trial.cfapps.eu20.hana.ondemand.com
+  path: approuter
+  memory: 128M
+  env:
+    TENANT_HOST_PATTERN: 'approuter-(.*).cfapps.eu20.hana.ondemand.com'
+    destinations: '[{"name":"app-destination", "url" :"https://address-manager-quiet-platypus.cfapps.eu20.hana.ondemand.com", "forwardAuthToken": true}]'
+  services:
+    - my-xsuaa
