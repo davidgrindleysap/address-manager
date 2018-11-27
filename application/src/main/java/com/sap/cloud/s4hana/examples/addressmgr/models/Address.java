@@ -60,4 +60,5 @@ public class Address
     @Getter
     @Setter
     private String status;
+
 }

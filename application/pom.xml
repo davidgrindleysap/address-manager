@@ -69,11 +69,34 @@
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- General dependencies -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Persistency -->
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.frameworks</groupId>
+            <artifactId>liquibase</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.2.21.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+            <version>2.0.1.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <finalName>${project.artifactId}</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -83,13 +106,11 @@
                     <attachClasses>true</attachClasses>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.openejb.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
                 <version>1.7.5</version>
                 <configuration>
-                    <tomeeClassifier>jaxrs</tomeeClassifier>
                     <context>ROOT</context>
                     <libs>
                         <lib>remove:slf4j-jdk14</lib>
